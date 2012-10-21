@@ -1,0 +1,27 @@
+
+
+<h1>Sign up</h1>
+
+
+<%= form_for @user do |f| %>
+
+<% if @user.errors.any? %>
+<div class="alert alert-error">
+<% @user.errors.full_messages.each do |msg| %>
+<%= msg %>
+<% end %>
+</div>
+<% end %>
+
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation, 'Confirmation' %>
+<%= f.password_field :password_confirmation %><br />
+<%= f.submit 'Send' , :class => 'btn btn-large btn-primary' %>
+
+
+<% end %>
+

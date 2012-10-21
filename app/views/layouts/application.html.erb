@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rc274RememberMeAndResetPassword</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+<div class="span8 offset2">
+
+
+<nav>
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to 'Log Out', logout_path %> 
+  <% else %>
+    <%= link_to 'Sign Up', signup_path %> or 
+    <%= link_to 'Log In', login_path %>
+  <% end %>
+</nav>
+
+
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :class => "alert alert-#{name}" %>
+<% end %>
+
+
+<%= yield %>
+
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
